@@ -2,12 +2,13 @@ public class Person {
     private String name;
     private int age;
     private String city;
-
+//constructor
     public Person(String name, int age, String city) {
         this.name = name;
         this.age = age;
         this.city = city;
     }
+    //getters and setters for accessing private variables
     public String getName() {
         return name;
     }
