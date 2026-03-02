@@ -19,17 +19,17 @@ public class Main {
             return new Person(name, age, city);
         }).limit(count).collect(Collectors.toList());
         if (people.size() >= 2) {
-            people.get(1).setName("Updated Name");
+            people.get(1).setName("OriginalUpdated Name");
             System.out.println("Changed name of second person.");
         }
         System.out.println("\nGrouped by age:");
         people.stream()
                 .collect(Collectors.groupingBy(Person::getAge, Collectors.mapping(Person::getName, Collectors.toList())))
-                .forEach((age, names) -> System.out.println(age + " -> " + names));
+                .forEach((age, names) -> System.out.println(age + " : " + names));
         System.out.println("\nCount by city:");
         people.stream()
                 .collect(Collectors.groupingBy(Person::getCity, Collectors.counting()))
-                .forEach((city, countNum) -> System.out.println(city + " -> " + countNum));
+                .forEach((city, countNum) -> System.out.println(city + " : " + countNum));
 
         scanner.close();
     }
